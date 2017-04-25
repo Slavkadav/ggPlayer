@@ -1,0 +1,21 @@
+{
+  "files": [
+    "src/Player.ts",
+    "src/Views/AbstractView.ts",
+    "src/Views/ConcreteView.ts",
+    "src/main.ts",
+    "src/Video/VideoFactory.ts",
+    "src/Video/VideoMP4.ts",
+    "src/Video/AbstractVideo.ts",
+    "src/Video/VideoStream.ts"
+
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
