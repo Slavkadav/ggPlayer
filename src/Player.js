@@ -6,7 +6,6 @@ var Player = (function () {
     function Player(videoURL, parent) {
         this.video = new VideoFactory_1.VideoFactory().createVideo(videoURL, parent);
     }
-
     Object.defineProperty(Player.prototype, "playerView", {
         set: function (view) {
             var _this = this;
