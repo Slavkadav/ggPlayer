@@ -1,5 +1,6 @@
 import {Player} from './Player'
 import {ConcreteView} from './Views/ConcreteView'
+//TODO: добавить возможность изменять качество стрима по нажатию на соответствующие кнопки
 
 
 window.onload = () => {
