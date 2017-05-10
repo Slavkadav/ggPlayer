@@ -1,45 +1,63 @@
-
 import {AbstractView} from "./Views/AbstractView"
 import {AbstractVideo} from "./Video/AbstractVideo";
 import {VideoFactory} from "./Video/VideoFactory";
+import {PlayerEvents} from "./PlayerEvents";
 
 export class Player {
 
-    private videoElement : AbstractVideo;
-    private view : AbstractView;
+    private video: AbstractVideo;
+    private view: AbstractView;
 
-    constructor(videoURL:string, parent:HTMLElement) {
-       let factory = new VideoFactory();
-
-        this.videoElement = factory.createVideo(videoURL,parent);
+    constructor(videoURL: string, parent: HTMLElement) {
+        this.video = new VideoFactory().createVideo(videoURL, parent);
     }
 
-    set viewSet(view: AbstractView) {
+    set playerView(view: AbstractView) {
         this.view = view;
-        this.view.addListener('playerPlay', () => this.play());
-        this.view.addListener('playerPause', () => this.pause());
-        this.view.addListener('playerMute', () => this.mute());
+        this.view.on(PlayerEvents.play, () => this.play());
+        this.view.on(PlayerEvents.pause, () => this.pause());
+        this.view.on(PlayerEvents.mute, () => this.mute());
+        this.view.on(PlayerEvents.seekBarChange, () => this.changeSeekBar());
+        this.view.on(PlayerEvents.volumeChange, () => this.changeVolume());
+        this.view.on(PlayerEvents.fullscreenToggle, () => this.setFullscreen());
+        this.video.on(PlayerEvents.videoEnd, () => this.videoEnd());
+        this.video.on(PlayerEvents.updateTime, () => this.changeSeekBarValue());
     }
 
-    play():void {
-        this.videoElement.playVideo();
+
+    videoEnd(): void {
+        this.view.videoEnd();
     }
 
-    /**
-     * Пауза
-     */
-    pause():void {
-        this.videoElement.pauseVideo();
+    play(): void {
+        this.video.playVideo();
     }
 
-    /**
-     * Выключение звука
-     */
-    mute():void {
-        this.videoElement.muteVideo();
+
+    pause(): void {
+        this.video.pauseVideo();
     }
 
-    stop():void {
 
+    mute(): void {
+        this.video.muteVideo();
+    }
+
+    changeSeekBarValue(): void {
+        this.view.seekBarValue = this.video.videoCurrentTime.toString();
+    }
+
+    changeSeekBar(): void {
+        this.video.videoRewind(this.view.seekBarValue);
+    }
+
+    changeVolume(): void {
+        console.log(this.view.volumeValue);
+        this.video.volume = this.view.volumeValue;
+    }
+
+    setFullscreen(): void {
+        console.log('setFullscreen');
+        this.video.setFullscreen();
     }
 }

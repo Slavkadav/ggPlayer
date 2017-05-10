@@ -1,1 +1,10 @@
-{"version":3,"file":"AbstractView.js","sourceRoot":"","sources":["AbstractView.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,iCAAoC;AAEpC;IAA2C,gCAAY;IAKnD,sBAAY,WAAuB;QAAnC,YACI,iBAAO,SAGV;QANS,cAAQ,GAAW,EAAE,CAAC;QAI5B,KAAI,CAAC,WAAW,GAAG,WAAW,CAAC;;IAEnC,CAAC;IAEL,mBAAC;AAAD,CAAC,AAXD,CAA2C,qBAAY,GAWtD;AAXqB,oCAAY"}
+{
+  "version": 3,
+  "file": "AbstractView.js",
+  "sourceRoot": "",
+  "sources": [
+    "AbstractView.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;AAAA,iCAAoC;AAEpC;IAA2C,gCAAY;IAWnD,sBAAY,WAAwB;QAApC,YACI,iBAAO,SAGV;QAZS,cAAQ,GAAW,EAAE,CAAC;QAU5B,KAAI,CAAC,WAAW,GAAG,WAAW,CAAC;;IAEnC,CAAC;IAQL,mBAAC;AAAD,CAAC,AAvBD,CAA2C,qBAAY,GAuBtD;AAvBqB,oCAAY"
+}

@@ -16,9 +16,8 @@ var VideoFactory = (function () {
                 console.log('created stream');
                 return new VideoStream_1.VideoStream(url, parentElement);
             default:
-                return new VideoStream_1.VideoStream(url, parentElement);
+                return null;
         }
-        //return null;
     };
     return VideoFactory;
 }());

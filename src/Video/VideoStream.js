@@ -15,7 +15,7 @@ var Hls = require("hls.js");
 var VideoStream = (function (_super) {
     __extends(VideoStream, _super);
     function VideoStream(videoURL, parentElement) {
-        var _this = _super.call(this, videoURL, parentElement) || this;
+        var _this = _super.call(this, parentElement) || this;
         if (Hls.isSupported) {
             var hls = new Hls();
             hls.loadSource(videoURL);

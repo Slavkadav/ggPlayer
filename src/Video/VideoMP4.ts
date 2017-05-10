@@ -4,10 +4,9 @@ import {AbstractVideo} from "./AbstractVideo";
  */
 
 export class VideoMP4 extends AbstractVideo {
-    //TODO: добавить новый класс видео
 
     constructor(videoURL: string, parentElement: HTMLElement) {
-        super(videoURL,parentElement);
+        super(parentElement);
         this.videoElement.src = videoURL;
     }
 
