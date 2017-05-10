@@ -7,6 +7,7 @@ export class VideoMP4 extends AbstractVideo {
 
     constructor(videoURL: string, parentElement: HTMLElement) {
         super(parentElement);
+        console.log('WTF!?');
         this.videoElement.src = videoURL;
     }
 

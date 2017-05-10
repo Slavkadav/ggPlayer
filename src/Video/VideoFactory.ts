@@ -15,6 +15,7 @@ export class VideoFactory {
                 console.log('created mp4 video');
                 return new VideoMP4(url, parentElement);
             case 'm3u8':
+            case 'smil':
                 console.log('created stream');
                 return new VideoStream(url, parentElement);
             default :

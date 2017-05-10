@@ -13,6 +13,7 @@ var VideoFactory = (function () {
                 console.log('created mp4 video');
                 return new VideoMP4_1.VideoMP4(url, parentElement);
             case 'm3u8':
+            case 'smil':
                 console.log('created stream');
                 return new VideoStream_1.VideoStream(url, parentElement);
             default:

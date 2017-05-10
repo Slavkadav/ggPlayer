@@ -18,6 +18,7 @@ var VideoMP4 = (function (_super) {
     __extends(VideoMP4, _super);
     function VideoMP4(videoURL, parentElement) {
         var _this = _super.call(this, parentElement) || this;
+        console.log('WTF!?');
         _this.videoElement.src = videoURL;
         return _this;
     }
