@@ -9,6 +9,8 @@ export abstract class AbstractVideo extends EventEmitter {
     constructor(parentElement: HTMLElement) {
         super();
         this.videoElement = document.createElement('video');
+        this.videoElement.style.width = '100%';
+        this.videoElement.style.height = '100%';
         this.parentElement = parentElement;
         parentElement.appendChild(this.videoElement);
         this.videoElement.addEventListener('timeupdate', () => this.emit('videoUpdateTime'));
@@ -47,6 +49,17 @@ export abstract class AbstractVideo extends EventEmitter {
 
     set volume(value: number) {
         this.videoElement.volume = value;
+    }
+
+    set quality(value: number) {
+    }
+
+    get quality(): number {
+        return null;
+    }
+
+    get videoQualityLevels(): string[] {
+        return null;
     }
 
 }

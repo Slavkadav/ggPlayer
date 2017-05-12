@@ -10,4 +10,6 @@ export class PlayerEvents {
     static readonly videoEnd = 'videoEnd';
     static readonly updateTime = 'videoUpdateTime';
     static readonly fullscreenToggle = 'videoFullscreen';
+    static readonly qualityChange = 'videoChangeQuality';
+    static readonly qualityAutoChange = 'videoAutoQuality';
 }

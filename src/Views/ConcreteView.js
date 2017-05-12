@@ -16,7 +16,7 @@ var ConcreteView = (function (_super) {
     __extends(ConcreteView, _super);
     function ConcreteView(placeHolder) {
         var _this = _super.call(this, placeHolder) || this;
-        _this.htmlText = "<div id=\"controls\">\n            <input type=\"range\" id=\"seekBar\" value=\"0\">\n            <button type=\"button\" id=\"play\">Play</button>\n            <button type=\"button\" id=\"pause\">Pause</button>\n            <button type=\"button\" id=\"mute\">Mute</button>\n            <button type=\"button\" id=\"fullscreen\">Fullscreen</button>\n            <input type=\"range\" id=\"volumeBar\" value=\"100\"/>\n         </div>";
+        _this.htmlText = "<div id=\"controls\">\n            <input type=\"range\" id=\"seekBar\" value=\"0\">\n            <button type=\"button\" id=\"play\">Play</button>\n            <button type=\"button\" id=\"pause\">Pause</button>\n            <button type=\"button\" id=\"mute\">Mute</button>\n            <button type=\"button\" id=\"fullscreen\">Fullscreen</button>\n            <input type=\"range\" id=\"volumeBar\" value=\"100\"/>\n            <select name=\"quality\" id=\"qualitySet\">\n            \n            </select>\n         </div>";
         _this.placeHolder.insertAdjacentHTML('beforeEnd', _this.htmlText);
         _this.init();
         return _this;
@@ -44,11 +44,36 @@ var ConcreteView = (function (_super) {
         this.fullscreen.addEventListener('click', function () {
             return _this.fullscreenSet();
         });
+        this.quality = document.getElementById('qualitySet');
+        this.quality.onchange = function () {
+            return _this.qualityChanged();
+        };
     };
+    Object.defineProperty(ConcreteView.prototype, "qualityLevels", {
+        set: function (value) {
+            for (var i = value.length - 1; i >= 0; i--) {
+                console.log(value[i]);
+                var option_1 = document.createElement('option');
+                option_1.text = value[i];
+                this.quality.options.add(option_1);
+            }
+            var option = document.createElement('option');
+            option.text = 'auto';
+            this.quality.options.add(option);
+            this.quality.options.selectedIndex = this.quality.options.length - 1;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     ConcreteView.prototype.pauseClicked = function () {
         this.emit(PlayerEvents_1.PlayerEvents.pause);
         this.pauseButton.disabled = true;
         this.playButton.disabled = false;
+    };
+    ConcreteView.prototype.qualityChanged = function () {
+        this.videoCurrentQuality = this.quality.selectedIndex;
+        this.emit(PlayerEvents_1.PlayerEvents.qualityChange);
     };
     ConcreteView.prototype.fullscreenSet = function () {
         console.log('fullscreenPress');
@@ -93,6 +118,23 @@ var ConcreteView = (function (_super) {
         this.pauseButton.disabled = true;
         this.playButton.textContent = 'Repeat';
     };
+    Object.defineProperty(ConcreteView.prototype, "currentQuality", {
+        get: function () {
+            return this.videoCurrentQuality;
+        },
+        set: function (value) {
+            // this.quality.options.selectedIndex = this.quality.options.length-1;
+            if (this.quality.options.selectedIndex === this.quality.options.length - 1) {
+                this.quality.options[this.quality.options.length - 1].textContent =
+                    'auto (' + this.quality.options[value].textContent + 'p)';
+            }
+            else {
+                this.quality.options[this.quality.options.length - 1].textContent = 'auto';
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     return ConcreteView;
 }(AbstractView_1.AbstractView));
 exports.ConcreteView = ConcreteView;

@@ -19,6 +19,8 @@ var AbstractVideo = (function (_super) {
     function AbstractVideo(parentElement) {
         var _this = _super.call(this) || this;
         _this.videoElement = document.createElement('video');
+        _this.videoElement.style.width = '100%';
+        _this.videoElement.style.height = '100%';
         _this.parentElement = parentElement;
         parentElement.appendChild(_this.videoElement);
         _this.videoElement.addEventListener('timeupdate', function () { return _this.emit('videoUpdateTime'); });
@@ -55,6 +57,19 @@ var AbstractVideo = (function (_super) {
     Object.defineProperty(AbstractVideo.prototype, "volume", {
         set: function (value) {
             this.videoElement.volume = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractVideo.prototype, "quality", {
+        get: function () { return null; },
+        set: function (value) { },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractVideo.prototype, "videoQualityLevels", {
+        get: function () {
+            return null;
         },
         enumerable: true,
         configurable: true

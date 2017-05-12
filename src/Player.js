@@ -10,6 +10,13 @@ var Player = (function () {
         set: function (view) {
             var _this = this;
             this.view = view;
+            this.video.on('videoLoaded', function () {
+                console.log('set quality levels');
+                _this.view.qualityLevels = _this.video.videoQualityLevels;
+            });
+            this.video.on(PlayerEvents_1.PlayerEvents.qualityAutoChange, function () {
+                _this.view.currentQuality = _this.video.quality;
+            });
             this.view.on(PlayerEvents_1.PlayerEvents.play, function () {
                 return _this.play();
             });
@@ -27,6 +34,9 @@ var Player = (function () {
             });
             this.view.on(PlayerEvents_1.PlayerEvents.fullscreenToggle, function () {
                 return _this.setFullscreen();
+            });
+            this.view.on(PlayerEvents_1.PlayerEvents.qualityChange, function () {
+                return _this.changeQuality();
             });
             this.video.on(PlayerEvents_1.PlayerEvents.videoEnd, function () {
                 return _this.videoEnd();
@@ -63,6 +73,10 @@ var Player = (function () {
     Player.prototype.setFullscreen = function () {
         console.log('setFullscreen');
         this.video.setFullscreen();
+    };
+    Player.prototype.changeQuality = function () {
+        console.log('change quality level to ' + this.view.currentQuality);
+        this.video.quality = this.view.currentQuality;
     };
     return Player;
 }());

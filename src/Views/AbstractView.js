@@ -19,6 +19,25 @@ var AbstractView = (function (_super) {
         _this.placeHolder = placeHolder;
         return _this;
     }
+
+    Object.defineProperty(AbstractView.prototype, "currentQuality", {
+        get: function () {
+            return null;
+        },
+        set: function (value) {
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    ;
+    Object.defineProperty(AbstractView.prototype, "qualityLevels", {
+        set: function (value) {
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     return AbstractView;
 }(events_1.EventEmitter));
 exports.AbstractView = AbstractView;
