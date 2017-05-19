@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style-new.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+<script src="bundle.js"></script>
+<div class="video-tab" id="video-tab">
+
+    <div class="video-player" data-sound="half" data-fullscreen="false"
+         data-play="false">
+        <div class="video-inner">
+
+            <div class="video">
+                <!-- ngIf: !player.loading -->
+
+                <div class="poster-faded"></div>
+                <video
+                        poster="https://storage2.goodgame.ru/clips/previews/6_1492283247116.jpg" loop=""
+                        preload="none"
+                        src="https://storage2.goodgame.ru/clips/6_1492283247116.mp4"></video>
+
+            </div>
+            <div class="top-block">
+                <div class="shadow top"></div>
+                <!-- ngIf: player.streamer -->
+                <a href="/clip/51457/channel/" target="_blank"
+                   class="info-block ng-scope">
+                <span class="avatar">
+                    <img alt="" src="/files/avatars/av_1_BObO.gif">
+                </span>
+                    <span class="text-block">
+                    <span class="video-name ng-binding">Miker играл в Playerunknown's Battlegrounds</span>
+                    <span class="views ng-binding">2087 просмотров</span>
+                </span>
+                </a><!-- end ngIf: player.streamer -->
+            </div>
+            <div class="status-block">
+                <span class="icon icon-video-play"></span>
+                <span class="icon icon-video-pause"></span>
+            </div>
+
+            <!--a href="" class="next-block">
+                <span class="icon icon-skip-next"></span>
+                <span class="count">5 / 103</span>
+            </a-->
+            <div class="bot-block">
+                <div class="shadow bot"></div>
+
+                <div class="player-control-bottom">
+                    <!--<div class="progress-bar">
+                        &lt;!&ndash;div class="tip">{{ panel.formatTime(panel.position) }}</div&ndash;&gt;
+                        &lt;!&ndash; ngIf: panel.duration &ndash;&gt;
+                        <div class="progress-loaded ng-scope"
+                             style="transform: scaleX(1)"></div>&lt;!&ndash; end ngIf: panel.duration &ndash;&gt;
+                        &lt;!&ndash; ngIf: panel.duration &ndash;&gt;
+                        <div class="progress-hover ng-scope"
+                             style="left: 8.179897965944477%; transform: scaleX(0.25407273086687104);"></div>
+                        &lt;!&ndash; end ngIf: panel.duration &ndash;&gt;
+                        &lt;!&ndash; ngIf: panel.duration &ndash;&gt;
+                        <div class="progress-played ng-scope"
+                             style="transform: scaleX(0.08179897965944477);"></div>
+                        &lt;!&ndash; end ngIf: panel.duration &ndash;&gt;
+                    </div>-->
+                    <div class="control-inner clearfix">
+                        <div class="player-button play-pause pull-left">
+                            <div class="state play">
+                                <div class="tip">Старт</div>
+                                <span class="icon icon-video-play"></span>
+                            </div>
+                            <div class="state pause">
+                                <div class="tip">Пауза</div>
+                                <span class="icon icon-video-pause"></span>
+                            </div>
+                        </div>
+                        <div class="sound-block pull-left">
+                            <div class="player-button mute-unmute pull-left">
+                                <div class="state full">
+                                    <div class="tip">Без звука</div>
+                                    <span class="icon icon-video-mute-full"></span>
+                                </div>
+                                <div class="state half">
+                                    <div class="tip">Без звука</div>
+                                    <span class="icon icon-video-mute-half"></span>
+                                </div>
+                                <div class="state unmute">
+                                    <div class="tip">Включить звук</div>
+                                    <span class="icon icon-video-unmute"></span>
+                                </div>
+                            </div>
+                            <!--gg-player-volume volume="panel.volume" class="ng-isolate-scope"-->
+                            <div class="sound-bar-block">
+                                <div class="progress-sound">
+                                    <div class="slider-range" style="width: 75%;"></div>
+                                    <div class="handle" style="left:75%;"></div>
+                                </div>
+                            </div>
+                            <!--/gg-player-volume-->
+                        </div>
+                        <!--<div class="timer-block">
+                            <span class="ng-binding">00:02</span> /
+                            <span class="ng-binding">00:30</span>
+                        </div>-->
+                        <div class="pull-right">
+                            <!--<a class="player-button pull-left download"
+                               href="https://storage2.goodgame.ru/clips/6_1492283247116.mp4" download="">
+                                <div class="state">
+                                    <div class="tip">Скачать клип</div>
+                                    <span class="icon icon-video-download"></span>
+                                </div>
+                            </a>-->
+                            <div class="player-button pull-left full-exitfull"
+                            >
+                                <div class="state full">
+                                    <div class="tip">Во весь экран</div>
+                                    <span class="icon icon-video-fullscreen"></span>
+                                </div>
+                                <div class="state normal">
+                                    <div class="tip">Выход из полноэкранного режима</div>
+                                    <span class="icon icon-video-normalmode"></span>
+                                </div>
+                                <!--div class="exitfull">
+                                    <div class="tip">Обычный режим</div>
+                                    <span class="icon icon-video-download"></span>
+                                </div-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
