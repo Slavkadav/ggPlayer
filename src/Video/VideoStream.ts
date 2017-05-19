@@ -25,7 +25,7 @@ export class VideoStream extends AbstractVideo {
                     this.emit('videoLoaded');
                     return this.playVideo();
                 });
-            })
+            });
 
             this.hls.on(Hls.Events.LEVEL_SWITCHED, () => {
                 this.emit(PlayerEvents.qualityAutoChange);

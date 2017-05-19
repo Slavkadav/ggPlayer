@@ -5,11 +5,11 @@ export abstract class AbstractView extends EventEmitter {
     protected placeHolder: HTMLElement;
     protected template: string = '';
 
-    protected playButton: HTMLButtonElement;
-    protected pauseButton: HTMLButtonElement;
-    protected muteButton: HTMLButtonElement;
-    protected seekBar: HTMLInputElement;
-    protected volumeBar: HTMLInputElement;
+    //protected playButton: HTMLButtonElement;
+    //protected pauseButton: HTMLButtonElement;
+    //protected muteButton: HTMLButtonElement;
+    // protected seekBar: HTMLInputElement;
+    //protected volumeBar: HTMLInputElement;
 
     constructor(placeHolder: HTMLElement) {
         super();

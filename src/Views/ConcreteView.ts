@@ -6,6 +6,8 @@ export class ConcreteView extends AbstractView {
     fullscreen: HTMLButtonElement;
     videoCurrentQuality: number;
     quality: HTMLSelectElement;
+    seekBar: HTMLInputElement;
+    playButton: HTMLButtonElement;
 
     protected htmlText: string =
         `<div id="controls">
@@ -16,8 +18,7 @@ export class ConcreteView extends AbstractView {
             <button type="button" id="fullscreen">Fullscreen</button>
             <input type="range" id="volumeBar" value="100"/>
             <select name="quality" id="qualitySet">
-            
-            </select>
+          </select>
          </div>`;
 
 

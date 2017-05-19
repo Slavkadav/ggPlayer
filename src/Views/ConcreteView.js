@@ -16,7 +16,7 @@ var ConcreteView = (function (_super) {
     __extends(ConcreteView, _super);
     function ConcreteView(placeHolder) {
         var _this = _super.call(this, placeHolder) || this;
-        _this.htmlText = "<div id=\"controls\">\n            <input type=\"range\" id=\"seekBar\" value=\"0\">\n            <button type=\"button\" id=\"play\">Play</button>\n            <button type=\"button\" id=\"pause\">Pause</button>\n            <button type=\"button\" id=\"mute\">Mute</button>\n            <button type=\"button\" id=\"fullscreen\">Fullscreen</button>\n            <input type=\"range\" id=\"volumeBar\" value=\"100\"/>\n            <select name=\"quality\" id=\"qualitySet\">\n            \n            </select>\n         </div>";
+        _this.htmlText = "<div id=\"controls\">\n            <input type=\"range\" id=\"seekBar\" value=\"0\">\n            <button type=\"button\" id=\"play\">Play</button>\n            <button type=\"button\" id=\"pause\">Pause</button>\n            <button type=\"button\" id=\"mute\">Mute</button>\n            <button type=\"button\" id=\"fullscreen\">Fullscreen</button>\n            <input type=\"range\" id=\"volumeBar\" value=\"100\"/>\n            <select name=\"quality\" id=\"qualitySet\">\n          </select>\n         </div>";
         _this.placeHolder.insertAdjacentHTML('beforeEnd', _this.htmlText);
         _this.init();
         return _this;

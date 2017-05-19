@@ -10,7 +10,6 @@ export class Player {
 
     constructor(videoURL: string, parent: HTMLElement) {
         this.video = new VideoFactory().createVideo(videoURL, parent);
-
     }
 
     set playerView(view: AbstractView) {

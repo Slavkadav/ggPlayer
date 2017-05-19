@@ -13,13 +13,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var events_1 = require("events");
 var AbstractView = (function (_super) {
     __extends(AbstractView, _super);
+    //protected playButton: HTMLButtonElement;
+    //protected pauseButton: HTMLButtonElement;
+    //protected muteButton: HTMLButtonElement;
+    // protected seekBar: HTMLInputElement;
+    //protected volumeBar: HTMLInputElement;
     function AbstractView(placeHolder) {
         var _this = _super.call(this) || this;
         _this.template = '';
         _this.placeHolder = placeHolder;
         return _this;
     }
-
     Object.defineProperty(AbstractView.prototype, "currentQuality", {
         get: function () {
             return null;

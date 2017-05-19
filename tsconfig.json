@@ -8,8 +8,8 @@
     "src/Video/VideoMP4.ts",
     "src/Video/AbstractVideo.ts",
     "src/Video/VideoStream.ts",
-    "src/PlayerEvents.ts"
-
+    "src/PlayerEvents.ts",
+    "src/Views/ggClipView.ts"
   ],
   "compilerOptions": {
     "module": "commonjs",
