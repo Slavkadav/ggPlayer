@@ -25,7 +25,6 @@ export class ggClipView extends AbstractView {
 
         this.fullscreenButton = <HTMLElement>document.getElementsByClassName('full-exitfull').item(0);
         this.fullscreenButton.addEventListener('click', () => {
-            console.log('QQQ');
             this.emit(PlayerEvents.fullscreenToggle);
             this.fullscreenButton.classList.toggle('active')
         });

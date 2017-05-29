@@ -19,10 +19,6 @@ var AbstractVideo = (function (_super) {
     function AbstractVideo(parentElement) {
         var _this = _super.call(this) || this;
         _this.videoElement = document.getElementsByTagName('video')[0];
-        // this.videoElement.style.width = '100%';
-        // this.videoElement.style.height = '100%';
-        //this.parentElement = parentElement;
-        //parentElement.appendChild(this.videoElement);
         _this.videoElement.addEventListener('timeupdate', function () { return _this.emit('videoUpdateTime'); });
         _this.videoElement.addEventListener('ended', function () { return _this.emit('videoEnd'); });
         return _this;

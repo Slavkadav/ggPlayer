@@ -27,7 +27,6 @@ var ggClipView = (function (_super) {
         _this.volumeBar.ondragstart = function () { return false; };
         _this.fullscreenButton = document.getElementsByClassName('full-exitfull').item(0);
         _this.fullscreenButton.addEventListener('click', function () {
-            console.log('QQQ');
             _this.emit(PlayerEvents_1.PlayerEvents.fullscreenToggle);
             _this.fullscreenButton.classList.toggle('active');
         });
