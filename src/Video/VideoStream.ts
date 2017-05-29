@@ -3,7 +3,7 @@ import Hls = require("hls.js");
 import {isUndefined} from "util";
 import {PlayerEvents} from "../PlayerEvents";
 
-
+// TODO: Переименуй в VideoHLS
 export class VideoStream extends AbstractVideo {
     private hls;
     private qualityLevels;
@@ -11,13 +11,15 @@ export class VideoStream extends AbstractVideo {
 
     constructor(videoURL: string, parentElement: HTMLElement) {
         super(parentElement);
+
+        // TODO: Выглядит очень некрасиво
         if (Hls.isSupported) {
             this.hls = new Hls();
             //this.hls.autoLevelEnabled = false;
             this.hls.attachMedia(this.videoElement);
             this.hls.on(Hls.Events.MEDIA_ATTACHED, () => {
                 this.hls.loadSource(videoURL);
-                this.hls.on(Hls.Events.MANIFEST_LOADED, (event, data) => {
+                this.hls.on(Hls.Events.MANIFEST_LOADED, (event, data) => { // TODO: <-- Колбек в колбеке, ммм :)
                     this.qualityLevels = data.levels;
                     // this.ready = true;
                     // this.hls.loadLevel = 0;
@@ -49,6 +51,7 @@ export class VideoStream extends AbstractVideo {
     get videoQualityLevels(): string[] {
         console.log('get quality levels');
         let levels: string[] = [];
+        // TODO: Вместо цикла посмотри в сторону .map
         for (let level of this.qualityLevels) {
             levels.push(level.height.toString());
             //console.log(level.height);

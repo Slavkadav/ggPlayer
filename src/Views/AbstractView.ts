@@ -4,6 +4,8 @@ export abstract class AbstractView extends EventEmitter {
 
     protected placeHolder: HTMLElement;
     protected template: string = '';
+    // TODO: Сделай поддержку templateUrl
+    // TODO: Если есть template - вставляем его, если нет - грузим по templateUrl и вставляем
 
     //protected playButton: HTMLButtonElement;
     //protected pauseButton: HTMLButtonElement;
@@ -17,10 +19,10 @@ export abstract class AbstractView extends EventEmitter {
 
     }
 
-    abstract videoEnd(): void;
-    abstract get seekBarValue(): string;
+    abstract videoEnd(): void; // TODO: Эвент
+    abstract get seekBarValue(): string; // TODO: position
     abstract set seekBarValue(value: string);
-    abstract get  volumeValue(): number;
+    abstract get volumeValue(): number; // TODO: просто volume
 
     get currentQuality(): number {
         return null

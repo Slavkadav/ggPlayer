@@ -10,7 +10,8 @@ export abstract class AbstractVideo extends EventEmitter {
         super();
         this.videoElement = document.getElementsByTagName('video')[0];
 
-        this.videoElement.addEventListener('timeupdate', () => this.emit('videoUpdateTime'));
+        // TODO: Бинды событий вынеси в отдельную функцию
+        this.videoElement.addEventListener('timeupdate', () => this.emit('videoUpdateTime')); // TODO: В одном месте ты используешь строковое значение, в других - static readonly
         this.videoElement.addEventListener('ended', () => this.emit('videoEnd'));
     }
 
@@ -32,6 +33,10 @@ export abstract class AbstractVideo extends EventEmitter {
 
     setFullscreen(): void {
         console.log('enter fullscreen');
+
+        // TODO: При переходе в фулскрин не нужно менять стили, это делается просто выводом нужного элемента в RequestFullScreen
+        // TODO: У тебя тут только webkit, как насчет других браузеров?
+
         this.parentElement.webkitRequestFullScreen();
         this.parentElement.style.width = '100%';
         this.parentElement.style.height = '100%';
@@ -40,6 +45,7 @@ export abstract class AbstractVideo extends EventEmitter {
 
     }
 
+    // TODO: Rewind - это перемотка назад. Переход в произвольное место - это seek
     videoRewind(value: string): void {
         this.videoElement.currentTime = this.videoElement.duration * (+value / 100);
     }
