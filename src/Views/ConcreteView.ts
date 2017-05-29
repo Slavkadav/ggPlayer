@@ -3,6 +3,7 @@ import {PlayerEvents} from "../PlayerEvents";
 
 export class ConcreteView extends AbstractView {
 
+    // TODO: Зачем HTMLElement в паблике?
     fullscreen: HTMLButtonElement;
     videoCurrentQuality: number;
     quality: HTMLSelectElement;
@@ -29,6 +30,8 @@ export class ConcreteView extends AbstractView {
     }
 
     private init(): void {
+        // TODO: Не используй id - они могут пересекаться
+        // TODO: Искать нужно не от document, а от контейнера
 
         this.playButton = <HTMLButtonElement>document.getElementById('play');
         this.playButton.addEventListener('click', () => this.playClicked());
@@ -72,7 +75,7 @@ export class ConcreteView extends AbstractView {
     private pauseClicked(): void {
         this.emit(PlayerEvents.pause);
         this.pauseButton.disabled = true;
-        this.playButton.disabled = false;
+        this.playButton.disabled = false; // TODO: Изменение состояния кнопок должно быть не при нажатии, а при изменении статуса воспроизведения
     }
 
     private qualityChanged(): void {
@@ -80,9 +83,9 @@ export class ConcreteView extends AbstractView {
         this.emit(PlayerEvents.qualityChange);
     }
 
-    private fullscreenSet(): void {
+    private fullscreenSet(): void {  // TODO: setFullscreen
         console.log('fullscreenPress');
-        document.getElementById('controls').style.width = '100%';
+        document.getElementById('controls').style.width = '100%'; // TODO: Не должно быть измений стиля, только RequestFullScreen()
         this.emit(PlayerEvents.fullscreenToggle);
     }
 
@@ -94,7 +97,7 @@ export class ConcreteView extends AbstractView {
 
     private muteClicked(): void {
         this.emit(PlayerEvents.mute);
-        if (this.muteButton.textContent === "Mute")
+        if (this.muteButton.textContent === "Mute") // TODO: Изменение состояния кнопок должно быть не при нажатии, а при изменении звука
             this.muteButton.textContent = "Unmute";
         else {
             this.muteButton.textContent = "Mute";
@@ -102,7 +105,7 @@ export class ConcreteView extends AbstractView {
     }
 
     private seekBarChange(): void {
-        this.emit(PlayerEvents.seekBarChange);
+        this.emit(PlayerEvents.seekBarChange); // TODO: Отдельная функция ради одного emit не нужна
     }
 
     get seekBarValue(): string {

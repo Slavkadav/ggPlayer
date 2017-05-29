@@ -33,13 +33,13 @@ export class Player {
         this.view.on(PlayerEvents.volumeChange, () => this.changeVolume());
         this.view.on(PlayerEvents.fullscreenToggle, () => this.setFullscreen());
         this.view.on(PlayerEvents.qualityChange, () => this.changeQuality());
-        this.video.on(PlayerEvents.videoEnd, () => this.videoEnd());
+        this.video.on(PlayerEvents.videoEnd, () => this.videoEnd()); // TODO: Разделить эвенты видео и вью
         this.video.on(PlayerEvents.updateTime, () => this.changeSeekBarValue());
     }
 
 
     videoEnd(): void {
-        this.view.videoEnd();
+        this.view.videoEnd(); // TODO: Эвенты
     }
 
     play(): void {
@@ -66,7 +66,7 @@ export class Player {
 
     changeVolume(): void {
         console.log(this.view.volumeValue);
-        this.video.volume = this.view.volumeValue;
+        this.video.volume = this.view.volumeValue; // TODO: Значение должно приходить в эвенте
     }
 
     setFullscreen(): void {

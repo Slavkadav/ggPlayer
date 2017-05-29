@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- TODO: Грузи стили по ссылке с сайта, не нужно их в репозиторий пихать -->
     <link rel="stylesheet" href="style-new.css">
     <meta charset="UTF-8">
 </head>
 <body>
 <script src="bundle.js"></script>
 <div class="video-tab" id="video-tab">
+
+    <!-- TODO: Вынести наблон в отдельный файл -->
 
     <div class="video-player" data-sound="half" data-fullscreen="false"
          data-play="false">
@@ -21,16 +24,19 @@
                         preload="none"
                         src="https://storage2.goodgame.ru/clips/6_1492283247116.mp4"></video>
 
-            </div>
-            <div class="top-block">
-                <div class="shadow top"></div>
-                <!-- ngIf: player.streamer -->
+                <!-- TODO: Poster и Src должны заполняться внутри плеера -->
+
+           </div>
+           <div class="top-block">
+               <div class="shadow top"></div>
+               <!-- ngIf: player.streamer -->
                 <a href="/clip/51457/channel/" target="_blank"
                    class="info-block ng-scope">
                 <span class="avatar">
                     <img alt="" src="/files/avatars/av_1_BObO.gif">
                 </span>
                     <span class="text-block">
+                    <!-- TODO: Эти данные должны заполняться внутри плеера -->
                     <span class="video-name ng-binding">Miker играл в Playerunknown's Battlegrounds</span>
                     <span class="views ng-binding">2087 просмотров</span>
                 </span>

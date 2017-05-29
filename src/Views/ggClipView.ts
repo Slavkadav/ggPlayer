@@ -5,6 +5,7 @@ import {PlayerEvents} from "../PlayerEvents";
  */
 export class ggClipView extends AbstractView {
 
+    // TODO: Зачем HTMLElement в паблике?
     seekBar: HTMLElement;
     playButton: HTMLElement;
     muteButton: HTMLElement;
@@ -20,13 +21,13 @@ export class ggClipView extends AbstractView {
         this.playButton.addEventListener('click', () => this.playClicked());
 
         this.volumeBar = <HTMLElement>document.getElementsByClassName('sound-block').item(0);
-        this.volumeBar.onmousedown = (e: any) => this.moveVolume(e);
+        this.volumeBar.onmousedown = (e: any) => this.moveVolume(e); // TODO: Events
         this.volumeBar.ondragstart = () => false;
 
         this.fullscreenButton = <HTMLElement>document.getElementsByClassName('full-exitfull').item(0);
         this.fullscreenButton.addEventListener('click', () => {
             this.emit(PlayerEvents.fullscreenToggle);
-            this.fullscreenButton.classList.toggle('active')
+            this.fullscreenButton.classList.toggle('active')   // TODO: Изменение состояния кнопок должно быть не при нажатии, а при изменении состояния
         });
 
         this.muteButton = <HTMLElement>document.getElementsByClassName('mute-unmute').item(0);
@@ -46,11 +47,11 @@ export class ggClipView extends AbstractView {
 
     private mutePressed() {
         this.emit(PlayerEvents.mute);
-        this.muteButton.classList.toggle('mute');
+        this.muteButton.classList.toggle('mute'); // TODO: Изменение состояния кнопок должно быть не при нажатии, а при изменении состояния
     }
 
     private playClicked(): void {
-        if (this.playButton.classList.contains('active'))
+        if (this.playButton.classList.contains('active')) // TODO: Статус воспроизведения
             this.emit(PlayerEvents.pause);
         else this.emit(PlayerEvents.play);
 
